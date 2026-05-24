@@ -1,0 +1,8 @@
+kubectl exec -it postgresql-qcjps -- mkdir /var/lib/postgresql/data ;sleep 5;
+kubectl exec -it postgresql-qcjps -- mkdir /var/lib/postgresql/data/ts_temp ;sleep 5;
+kubectl exec -it postgresql-qcjps -- chown -R postgres:postgres /var/lib/postgresql/data/ ;sleep 5;
+kubectl cp init.sql postgresql-qcjps:/
+kubectl exec -it postgresql-qcjps -- psql -U postgres -f "/init.sql" ;sleep 15;\
+kubectl exec -it postgresql-qcjps -- psql -U postgres -c "DROP SCHEMA secuiot" ;sleep 5;\
+kubectl exec -it postgresql-qcjps -- sh -c "export PGPASSWORD=secuiot1q2w" ;sleep 5;\
+kubectl exec -it postgresql-qcjps -- psql secuiot -U secuiot -c "CREATE SCHEMA secuiot AUTHORIZATION secuiot"
