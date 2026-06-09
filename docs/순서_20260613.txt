@@ -1,0 +1,45 @@
+   1. Kubernetes 개념 설명(핵심만 : 상세한 내용은 각자 공부)
+     - Kubernetes
+      - ConfigMap / Secret
+        https://kubernetes.io/ko/docs/concepts/configuration/configmap/
+        https://kubernetes.io/ko/docs/concepts/configuration/secret/
+        => demo1에 configmap을 적용
+
+      - PersistentVolume / PersistentVolumeClaim
+        https://kimjingo.tistory.com/153
+        https://kubernetes.io/ko/docs/concepts/storage/persistent-volumes/
+        https://kubernetes.io/ko/docs/concepts/storage/persistent-volume-claims/
+
+   2. EKS에 InfraS/W 배포 (시간이 될때까지...)
+      - (Zookeeper, Kafka), Redis, Streamsets, ElasticSearch, Kibana, PostgreSQL 설치 실습
+        O. Zookeeper 설치 & Zookeeper 설명
+           https://xangmin.tistory.com/169
+
+        O. Kafka / Kafka Manager 설치 & Kafka 설명
+           https://velog.io/@holicme7/Apache-Kafka-%EC%B9%B4%ED%94%84%EC%B9%B4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80
+           https://ifuwanna.tistory.com/487
+
+        O. StreamSets 설치 & StreamSets 설명
+           https://www.ibm.com/docs/en/streamsets-legacy-dc/5.6.x?topic=guide-getting-started
+
+        O. ElasticSearch / Kibana 설치 & ElasticSearch 설명
+           https://victorydntmd.tistory.com/308
+           https://velog.io/@msjeong97/Elasticsearch%EB%9E%80
+           https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+           https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html
+           https://loosie.tistory.com/833
+           https://a-curious.tistory.com/54
+
+   3. 정규화
+      - 정규화 Event Field 정의
+      - Parsing (정규식 활용)
+      - Enrichment (Asset 정보, geoip ...)
+        geoip : Maxmind database - https://wildeveloperetrain.tistory.com/285#google_vignette
+        => Redis cache를 사용하여 성능 향상
+      - Streamsets를 활용하여 작업
+        : DB에서 읽어서 Redis에 설정
+        : Redis에서 읽어서 Enrichment 수행
+        : 정규화후 ElasticSearch에 저장 => Elasticsearch template 설정
+
+   4. CI/CD 자동화 실습(Github Actions 사용)
+      - github actions를 사용하여 java build, docker images 생성, ECR 등록, deploy까지 자동화
