@@ -27,7 +27,7 @@ spec:
       - name: elasticsearch-data1
         securityContext:
           privileged: true
-        image: 071564566144.dkr.ecr.ap-northeast-2.amazonaws.com/elasticsearch:7.10.0-nori
+        image: 799016889821.dkr.ecr.ap-northeast-2.amazonaws.com/elasticsearch:7.10.0-nori
 #        resources:
 #          limits:
 #            memory: "20Gi"

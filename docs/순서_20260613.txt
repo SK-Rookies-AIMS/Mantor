@@ -25,10 +25,10 @@
         O. ElasticSearch / Kibana 설치 & ElasticSearch 설명
            https://victorydntmd.tistory.com/308
            https://velog.io/@msjeong97/Elasticsearch%EB%9E%80
-           https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
-           https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html
            https://loosie.tistory.com/833
            https://a-curious.tistory.com/54
+           https://www.elastic.co/guide/en/elasticsearch/reference/current/index.html
+           https://www.elastic.co/guide/en/elasticsearch/client/java-rest/current/java-rest-high.html
 
    3. 정규화
       - 정규화 Event Field 정의

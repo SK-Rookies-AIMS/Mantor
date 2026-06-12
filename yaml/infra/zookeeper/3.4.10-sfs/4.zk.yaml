@@ -27,7 +27,7 @@ spec:
       containers:
       - name: k8szk
         imagePullPolicy: Always
-        image: 071564566144.dkr.ecr.ap-northeast-2.amazonaws.com/zookeeper:v3.4.10
+        image: 799016889821.dkr.ecr.ap-northeast-2.amazonaws.com/zookeeper:v3.4.10
         resources:
           requests:
             memory: "2Gi"

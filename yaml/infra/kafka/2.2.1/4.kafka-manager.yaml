@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: kafka-manager
-        image: 071564566144.dkr.ecr.ap-northeast-2.amazonaws.com/kafka-manager:v2
+        image: 799016889821.dkr.ecr.ap-northeast-2.amazonaws.com/kafka-manager:v2
         ports:
         - containerPort: 80
         env:

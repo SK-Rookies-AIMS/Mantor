@@ -17,7 +17,7 @@ spec:
   storageClassName: efs-sc
   csi:
     driver: efs.csi.aws.com
-    volumeHandle: fs-06a10d58077673e7b::fsap-098074ac52f06f74f
+    volumeHandle: fs-0157daf879929a62c::fsap-04e34e3f21a808dab
 ---
 
 apiVersion: v1
@@ -34,4 +34,486 @@ spec:
   selector:
     matchLabels:
       type: streamsets-data-pv
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: streamsets-libs-pv
+  labels:
+    type: streamsets-libs-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-00fa2c2e278545ac3
+---
+
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: streamsets-libs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      type: streamsets-libs-pv
+---
+
+
+###############################
+###### For Kafka
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: kafka-pv
+  labels:
+    type: kafka-pv
+spec:
+  capacity:
+    storage: 15Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-088e996c8be2f90a7
+---
+
+# Source: kafka/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kafka-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 15Gi
+  selector:
+    matchLabels:
+      type: kafka-pv
+---
+
+######################################
+###### For ElasticSearch master
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: es-master-config-pv
+  labels:
+    type: es-master-config-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-01dddc4ef4ff7824a
+---
+
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: es-master-config-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      type: es-master-config-pv
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: es-master-data-pv
+  labels:
+    type: es-master-data-pv
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-0fbff3191a11ce9f0
+---
+
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: es-master-data-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 10Gi
+  selector:
+    matchLabels:
+      type: es-master-data-pv
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: es-master-logs-pv
+  labels:
+    type: es-master-logs-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-012e4d427586d66a7
+---
+
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: es-master-logs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      type: es-master-logs-pv
+---
+
+######################################
+###### For ElasticSearch data1
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: es-data1-config-pv
+  labels:
+    type: es-data1-config-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-0da03f42ea30065cf
+---
+
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: es-data1-config-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      type: es-data1-config-pv
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: es-data1-data-pv
+  labels:
+    type: es-data1-data-pv
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-023b4fa01cf12735b
+---
+
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: es-data1-data-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 10Gi
+  selector:
+    matchLabels:
+      type: es-data1-data-pv
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: es-data1-logs-pv
+  labels:
+    type: es-data1-logs-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-07e4a2be41f00f59a
+---
+
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: es-data1-logs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      type: es-data1-logs-pv
+---
+
+
+######################################
+###### For ElasticSearch data2
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: es-data2-config-pv
+  labels:
+    type: es-data2-config-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-031455537085e940d
+---
+
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: es-data2-config-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      type: es-data2-config-pv
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: es-data2-data-pv
+  labels:
+    type: es-data2-data-pv
+spec:
+  capacity:
+    storage: 10Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-04677b7a4862fd400
+---
+
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: es-data2-data-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 10Gi
+  selector:
+    matchLabels:
+      type: es-data2-data-pv
+---
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: es-data2-logs-pv
+  labels:
+    type: es-data2-logs-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-082a0e91b7096baef
+---
+
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: es-data2-logs-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      type: es-data2-logs-pv
+---
+
+
+######################################
+###### For Kibana
+
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: kibana-config-pv
+  labels:
+    type: kibana-config-pv
+spec:
+  capacity:
+    storage: 1Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-081a54d5c724a2969
+---
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kibana-config-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 1Mi
+  selector:
+    matchLabels:
+      type: kibana-config-pv
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: kibana-data-pv
+  labels:
+    type: kibana-data-pv
+spec:
+  capacity:
+    storage: 1Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: efs-sc
+  csi:
+    driver: efs.csi.aws.com
+    volumeHandle: fs-0157daf879929a62c::fsap-08d8e2acb38a4c9f2
+---
+# Source: redis-master/templates/efs-pvc.yaml
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: kibana-data-pvc
+spec:
+  accessModes:
+    - ReadWriteMany
+  storageClassName: efs-sc
+  resources:
+    requests:
+      storage: 1Gi
+  selector:
+    matchLabels:
+      type: kibana-data-pv
 ---
