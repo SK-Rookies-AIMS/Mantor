@@ -1,0 +1,611 @@
+{
+  "order": 0,
+  "version": 20201211,
+  "index_patterns": [
+    "dsp_base_*"
+  ],
+  "settings": {
+    "index": {
+      "routing": {
+        "allocation": {
+          "require": {
+            "box_type": "hot"
+          }
+        }
+      },
+      "refresh_interval": "30s",
+      "number_of_shards": "2",
+      "number_of_replicas": "0",
+      "merge": {
+        "scheduler": {
+          "max_thread_count": "1"
+        }
+      }
+    }
+  },
+  "mappings": {
+    "properties": {
+      "flexDate1": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "sourceLocationSite": {
+        "type": "keyword"
+      },
+      "deviceDnsDomain": {
+        "type": "keyword"
+      },
+      "flexDate2": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "fileName": {
+        "type": "keyword"
+      },
+      "flexDate2Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "deviceCustomString3Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "flexDate3": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "flexDate4": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "oldFileSize": {
+        "type": "integer"
+      },
+      "collectorId": {
+        "type": "keyword"
+      },
+      "destinationLocationMap": {
+        "type": "keyword"
+      },
+      "deviceTimeFormat": {
+        "type": "keyword"
+      },
+      "collectorType": {
+        "type": "keyword"
+      },
+      "ruleEngineVersion": {
+        "type": "keyword"
+      },
+      "deviceNtDomain": {
+        "type": "keyword"
+      },
+      "deviceLocationSite": {
+        "type": "keyword"
+      },
+      "deviceSeverity": {
+        "type": "keyword"
+      },
+      "sourceMacAddress": {
+        "type": "keyword"
+      },
+      "hrEmployeeNumber": {
+        "type": "keyword"
+      },
+      "eventEndTime": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "eventRiskScore": {
+        "type": "integer"
+      },
+      "deviceLocationFloor": {
+        "type": "keyword"
+      },
+      "applicationProtocol": {
+        "type": "keyword"
+      },
+      "requestCookies": {
+        "type": "keyword"
+      },
+      "sourceLocationFloor": {
+        "type": "keyword"
+      },
+      "destinationNtDomain": {
+        "type": "keyword"
+      },
+      "deviceCustomString2Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "oldFilePermission": {
+        "type": "keyword"
+      },
+      "deviceProcessId": {
+        "type": "keyword"
+      },
+      "vasUuid": {
+        "type": "keyword"
+      },
+      "deviceAction": {
+        "type": "keyword"
+      },
+      "destinationLocationFloor": {
+        "type": "keyword"
+      },
+      "flexDate3Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "vasObject": {
+        "type": "keyword"
+      },
+      "deviceLocationMap": {
+        "type": "keyword"
+      },
+      "eventType": {
+        "type": "integer"
+      },
+      "sourceZoneId": {
+        "type": "keyword"
+      },
+      "oldFileModificationTime": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "oldFileHash": {
+        "type": "keyword"
+      },
+      "sourceTranslatedAddress": {
+        "type": "keyword"
+      },
+      "deviceSerial": {
+        "type": "long"
+      },
+      "sourceCountryCode": {
+        "type": "keyword"
+      },
+      "fileCreateTime": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "requestContext": {
+        "type": "keyword"
+      },
+      "destinationLocationSite": {
+        "type": "keyword"
+      },
+      "deviceFacility": {
+        "type": "keyword"
+      },
+      "destinationProcessName": {
+        "type": "keyword"
+      },
+      "sourceUserId": {
+        "type": "keyword"
+      },
+      "deviceCustomNumber1": {
+        "type": "long"
+      },
+      "deviceDirection": {
+        "type": "integer"
+      },
+      "deviceCustomNumber3": {
+        "type": "long"
+      },
+      "assetsId": {
+        "type": "keyword"
+      },
+      "deviceCustomNumber2": {
+        "type": "long"
+      },
+      "destinationPort": {
+        "type": "integer"
+      },
+      "sourceNtDomain": {
+        "type": "keyword"
+      },
+      "sourceHostName": {
+        "type": "keyword"
+      },
+      "collectorReceiptTime": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "hrIsInOffice": {
+        "type": "keyword"
+      },
+      "destinationProcessId": {
+        "type": "keyword"
+      },
+      "eventRiskLevel": {
+        "type": "integer"
+      },
+      "vasAlgorithm": {
+        "type": "integer"
+      },
+      "deviceCustomString6Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "deviceCustomNumber2Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "deviceOutboundInterface": {
+        "type": "keyword"
+      },
+      "deviceAddress": {
+        "type": "keyword"
+      },
+      "collectorAddress": {
+        "type": "keyword"
+      },
+      "deviceCustomString5Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "filePermission": {
+        "type": "keyword"
+      },
+      "requestUrl": {
+        "type": "keyword"
+      },
+      "customerId": {
+        "type": "keyword"
+      },
+      "deviceProcessName": {
+        "type": "keyword"
+      },
+      "deviceCustomNumber1Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "deviceProduct": {
+        "type": "keyword"
+      },
+      "bytesOut": {
+        "type": "integer"
+      },
+      "flexString2Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "destinationDnsDomain": {
+        "type": "keyword"
+      },
+      "sourceLocationBuilding": {
+        "type": "keyword"
+      },
+      "collectorTimeZoneOffset": {
+        "type": "integer"
+      },
+      "sourceAddress": {
+        "type": "keyword"
+      },
+      "motionName": {
+        "type": "keyword"
+      },
+      "destinationServiceName": {
+        "type": "keyword"
+      },
+      "sourceTranslatedPort": {
+        "type": "integer"
+      },
+      "deviceCustomString1": {
+        "type": "keyword"
+      },
+      "deviceCustomString3": {
+        "type": "keyword"
+      },
+      "flexNumber1Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "deviceCustomString2": {
+        "type": "keyword"
+      },
+      "destinationHostName": {
+        "type": "keyword"
+      },
+      "deviceCustomString5": {
+        "type": "keyword"
+      },
+      "deviceCustomString4": {
+        "type": "keyword"
+      },
+      "devicePayloadId": {
+        "type": "keyword"
+      },
+      "flexNumber1": {
+        "type": "long"
+      },
+      "deviceCustomString6": {
+        "type": "keyword"
+      },
+      "oldFileCreateTime": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "baseEventLength": {
+        "type": "integer"
+      },
+      "flexDate4Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "flexNumber2": {
+        "type": "long"
+      },
+      "fileModificationTime": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "vasEventType": {
+        "type": "integer"
+      },
+      "eventOutcome": {
+        "type": "keyword"
+      },
+      "tenantId": {
+        "type": "keyword"
+      },
+      "destinationTranslatedAddress": {
+        "type": "keyword"
+      },
+      "deviceChannelName": {
+        "type": "keyword"
+      },
+      "flexDate1Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "destinationMacAddress": {
+        "type": "keyword"
+      },
+      "sourcePort": {
+        "type": "integer"
+      },
+      "destinationAddress": {
+        "type": "keyword"
+      },
+      "eventCategory": {
+        "type": "keyword"
+      },
+      "deviceLocationBuilding": {
+        "type": "keyword"
+      },
+      "deviceZoneId": {
+        "type": "keyword"
+      },
+      "fileHash": {
+        "type": "keyword"
+      },
+      "eventCount": {
+        "type": "integer"
+      },
+      "sourceUserPrivileges": {
+        "type": "keyword"
+      },
+      "deviceReceiptTime": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "ruleEngineAddress": {
+        "type": "keyword"
+      },
+      "oldFileName": {
+        "type": "keyword"
+      },
+      "deviceCustomDate2Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "enrichmentTime": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "destinationTranslatedPort": {
+        "type": "integer"
+      },
+      "deviceTranslatedAddress": {
+        "type": "keyword"
+      },
+      "deviceInboundInterface": {
+        "type": "keyword"
+      },
+      "eventName": {
+        "type": "keyword"
+      },
+      "destinationUserPrivileges": {
+        "type": "keyword"
+      },
+      "deviceCustomDate1Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "deviceHostName": {
+        "type": "keyword"
+      },
+      "hrDepartment": {
+        "type": "keyword"
+      },
+      "deviceServerCode": {
+        "type": "long"
+      },
+      "eventId": {
+        "type": "keyword"
+      },
+      "deviceLocationArea": {
+        "type": "keyword"
+      },
+      "requestUrlFileName": {
+        "type": "keyword"
+      },
+      "sourceDnsDomain": {
+        "type": "keyword"
+      },
+      "deviceCustomDate2": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "deviceCustomDate1": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "eventReason": {
+        "type": "keyword"
+      },
+      "domainId": {
+        "type": "keyword"
+      },
+      "flexString1": {
+        "type": "keyword"
+      },
+      "requestClientApplication": {
+        "type": "keyword"
+      },
+      "collectorTimeZone": {
+        "type": "keyword"
+      },
+      "destinationLocationBuilding": {
+        "type": "keyword"
+      },
+      "fileSize": {
+        "type": "integer"
+      },
+      "hrEmployeeName": {
+        "type": "keyword"
+      },
+      "domainName": {
+        "type": "keyword"
+      },
+      "oldFileId": {
+        "type": "keyword"
+      },
+      "eventClassId": {
+        "type": "keyword"
+      },
+      "deviceChannelId": {
+        "type": "keyword"
+      },
+      "fileId": {
+        "type": "keyword"
+      },
+      "flexString2": {
+        "type": "keyword"
+      },
+      "deviceMacAddress": {
+        "type": "keyword"
+      },
+      "flexNumber2Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "rawEvent": {
+        "type": "keyword"
+      },
+      "deviceVendor": {
+        "type": "keyword"
+      },
+      "requestMethod": {
+        "type": "keyword"
+      },
+      "destinationCountryCode": {
+        "type": "keyword"
+      },
+      "collectorSeverity": {
+        "type": "integer"
+      },
+      "vasName": {
+        "type": "keyword"
+      },
+      "motionId": {
+        "type": "keyword"
+      },
+      "destinationUserName": {
+        "type": "keyword"
+      },
+      "sourceLocationArea": {
+        "type": "keyword"
+      },
+      "tenantName": {
+        "type": "keyword"
+      },
+      "providerId": {
+        "type": "keyword"
+      },
+      "hrJobGrade": {
+        "type": "keyword"
+      },
+      "collectorVersion": {
+        "type": "keyword"
+      },
+      "eventStartTime": {
+        "format": "epoch_millis",
+        "type": "date"
+      },
+      "rawEventLength": {
+        "type": "integer"
+      },
+      "flexString1Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "destinationUserId": {
+        "type": "keyword"
+      },
+      "bytesIn": {
+        "type": "integer"
+      },
+      "ruleEngineId": {
+        "type": "keyword"
+      },
+      "destinationLocationArea": {
+        "type": "keyword"
+      },
+      "deviceCustomNumber3Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "sourceUserName": {
+        "type": "keyword"
+      },
+      "filePath": {
+        "type": "keyword"
+      },
+      "oldFilePath": {
+        "type": "keyword"
+      },
+      "destinationZoneId": {
+        "type": "keyword"
+      },
+      "deviceCustomString1Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "deviceVersion": {
+        "type": "keyword"
+      },
+      "requestUrlQuery": {
+        "type": "keyword"
+      },
+      "deviceCustomString4Label": {
+        "index": false,
+        "type": "keyword"
+      },
+      "deviceTimeZone": {
+        "type": "keyword"
+      },
+      "sourceLocationMap": {
+        "type": "keyword"
+      },
+      "fileType": {
+        "type": "keyword"
+      },
+      "oldFileType": {
+        "type": "keyword"
+      }
+    }
+  },
+  "aliases": {}
+}
